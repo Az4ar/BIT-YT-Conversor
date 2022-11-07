@@ -25,9 +25,8 @@ app.get('/videomp3', async (req, res, next) => {
 			return res.sendStatus(400);
 		}
 
-		let titleString = await ytdl.getBasicInfo(url);
-		let title = titleString.videoDetails.title
-
+		let videoInfo = await ytdl.getBasicInfo(url);
+		let title = videoInfo.videoDetails.title;
 		let encode = encodeURI(title);
 
 		res.header('Content-Disposition', `attachment; filename="${encode}.mp3"`);
@@ -50,8 +49,8 @@ app.get('/videomp4', async (req, res, next) => {
 			return res.sendStatus(400);
 		}
 
-		let titleString = await ytdl.getBasicInfo(url);
-		let title = titleString.videoDetails.title;
+		let videoInfo = await ytdl.getBasicInfo(url);
+		let title = videoInfo.videoDetails.title;
 		let encode = encodeURI(title);
 		
 		res.header('Content-Disposition', `attachment; filename="${encode}.mp4"`);
