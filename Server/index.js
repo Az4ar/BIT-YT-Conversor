@@ -6,7 +6,9 @@ const ytdl = require('ytdl-core');
 const app = express();
 let path = require("path")
 
-app.use(cors());
+let mainDirectory = path.join(__dirname, "..", "public");
+
+app.use(express.static(mainDirectory));
 
 app.listen(process.env.PORT, () => {
 	console.log(`Servidor iniciado com sucesso!!! => http://${process.env.HOST}:${process.env.PORT} <=`);

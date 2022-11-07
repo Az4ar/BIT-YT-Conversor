@@ -1,0 +1,74 @@
+* {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #e4e3e3;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: rgb(65, 65, 65);
+    height: 100vh;
+}
+.heading {
+    margin-top:40vh;
+    margin: 50px auto 50px;
+    font-weight: bold;
+}
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width:30em;
+    height: 50px;
+}
+.URL-input, .convert-button {
+    font-size:1.3em;
+    padding:5px 10px;
+}
+.URL-input { 
+    border-radius:4px 0px 0px 4px;
+    width:30em;
+    height: 100%;
+    text-align: left;
+    border:2px solid #EEEEEE;
+    background: #EEEEEE;
+    outline:none;
+}
+.opt {
+    position: relative;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 0px 4px 4px 0px;
+    background-color: rgb(188, 188, 188);
+    padding: 10px;
+    
+}
+.URL-input:focus {
+    border:2px solid #0485ff;
+}
+.convert-button {
+    border-radius:4px 4px 4px 4px;
+    border:2px solid #009d2f;
+    background: #009d2f;
+    color:white;
+    margin: 10px auto ;
+}
+#btn {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.d-flex {
+    visibility: hidden;
+}
+option {
+    padding: 10px;
+    font-weight: bold;
+}
