@@ -31,7 +31,7 @@ async function downloadMp4(query) {
 	const res = await fetch(`${serverURL}/videomp4?url=${query}`);
 	if(res.status == 200) {
 		var a = document.createElement('a');
-  		a.href = `${serverURL}/videmp4?url=${query}`;
+  		a.href = `${serverURL}/videomp4?url=${query}`;
   		a.setAttribute('video', '');
 		a.click();
 	} else if(res.status == 400) {
