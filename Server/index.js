@@ -14,8 +14,7 @@ app.listen(process.env.PORT, () => {
 });
 
 app.get('/', async (req, res) => {
-	let file = path.join(__dirname, "..", "index.html")
-	console.log(file)
+	let file = path.join(__dirname, "..", "index.html");
 	res.sendFile(file);	
 })
 
