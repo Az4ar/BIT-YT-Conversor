@@ -20,4 +20,4 @@ Para instalar as dependecias necessarias basta usar o seguinte comando:
 # ⚙️ Iniciar servidor
 **`npm start`**
 
-`Servidor iniciado com sucesso!!! => http://127.0.0.1:4000<=`
+`Servidor iniciado com sucesso!!! => http://127.0.0.1:4000<= `
