@@ -8,7 +8,6 @@ let path = require("path")
 
 app.use(cors());
 
-
 app.listen(process.env.PORT, () => {
 	console.log(`Servidor iniciado com sucesso!!! => http://${process.env.HOST}:${process.env.PORT} <=`);
 });
