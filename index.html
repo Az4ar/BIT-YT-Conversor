@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<title>BIT YT-Conversor</title>
+</head>
+
+<body>
+    <style>
+        * {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #e4e3e3;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(65, 65, 65);
+    width: 100%;
+    height: 100vh;
+}
+.heading {
+    margin-top:40vh;
+    margin: 50px auto 50px;
+    font-weight: bold;
+}
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width:30em;
+    height: 50px;
+}
+.URL-input, .convert-button {
+    font-size:1.3em;
+    padding:5px 10px;
+}
+.URL-input { 
+    border-radius:4px 0px 0px 4px;
+    width:30em;
+    height: 100%;
+    text-align: left;
+    border:2px solid #EEEEEE;
+    background: #EEEEEE;
+    outline:none;
+}
+.opt {
+    position: relative;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 0px 4px 4px 0px;
+    background-color: rgb(188, 188, 188);
+    padding: 10px;
+    
+}
+.URL-input:focus {
+    border:2px solid #0485ff;
+}
+.convert-button {
+    border-radius:4px 4px 4px 4px;
+    border:2px solid #009d2f;
+    background: #009d2f;
+    color:white;
+    margin: 10px auto ;
+}
+#btn {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.d-flex {
+    visibility: hidden;
+}
+option {
+    padding: 10px;
+    font-weight: bold;
+}
+
+    </style>
+	<h1 class='heading'>:: Cole aqui sua URL ::</h1>
+    <div class="main-container">
+        <input class='URL-input' placeholder='https://www.youtube.com/watch?v=xSeXZRJOX54'/>
+        <select class='opt'>
+            <option value='mp3'>mp3</option>
+            <option value='mp4'>mp4</option>
+        </select>
+
+    </div>
+
+    <button type="button" id="btn" class="btn btn-danger">Baixar</button>
+
+    <div class="data-video" name="video"></div>
+    
+<script>
+let Btn = document.getElementById('btn');
+let URLinput = document.querySelector('.URL-input');
+let select = document.querySelector('.opt');
+let serverURL = 'http://localhost:4000';
+
+Btn.addEventListener('click', () => {
+	if (!URLinput.value) {
+		alert('O Campo abaixo não pode ser vazio!');
+	} else {
+		if (select.value == 'mp3') {
+			downloadMp3(URLinput.value);
+		} else if (select.value == 'mp4') {
+			downloadMp4(URLinput.value);
+		}
+	}
+});
+
+async function downloadMp3(query) {
+	const res = await fetch(`${serverURL}/videomp3?url=${query}`);
+	if(res.status == 200) {
+		var a = document.createElement('a');
+  		a.href = `${serverURL}/videomp3?url=${query}`;
+  		a.setAttribute('video', '');
+		a.click();
+	} else if(res.status == 400) {
+		alert(`A url **${URLinput.value}** É invalida!!!`);
+	}
+}
+
+async function downloadMp4(query) {
+	const res = await fetch(`${serverURL}/videomp4?url=${query}`);
+	if(res.status == 200) {
+		var a = document.createElement('a');
+  		a.href = `${serverURL}/videmp4?url=${query}`;
+  		a.setAttribute('video', '');
+		a.click();
+	} else if(res.status == 400) {
+		alert(`A url **${URLinput.value}** É invalida!!`);
+	}
+}
+
+</script>
+</body>
+
+
+</html>
