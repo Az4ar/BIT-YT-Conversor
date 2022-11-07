@@ -5,7 +5,7 @@ Esta aplicação realiza o download de videos do Youtube em formato MP3 ou MP4 e
 
 # 📁 Acesso ao Projeto
 
-**Você pode acessar os arquivos do projeto clicando  <a href="https://github.com/Az4ar/BIT-YT-Conversor/blob/master/index.html">aqui</a>**
+**Você pode acessar os arquivos do projeto clicando  <a href="https://github.com/Az4ar/BIT-YT-Conversorl">aqui</a>**
 
 # :hammer: Requisitos
 - `Node Js`
